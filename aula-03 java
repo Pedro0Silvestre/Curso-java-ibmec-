@@ -1,0 +1,40 @@
+import javax.swing.*;
+import java.util.Scanner;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        Scanner teclado = new Scanner(System.in);
+        int n,alunos = 0;
+        float nota, notas = 0,maiorNota=0,menorNota=11,media;
+        boolean temNotas = false;
+        /*String resultado;
+
+        // em java cada objeto só faz parte de uma classe
+        // metodo construtor: alocar na memoria
+        // metodo destrutor: remove da memória
+        //
+
+        n = teclado.nextInt();
+        resultado = n%2 == 0 ? "par" : "ímpar";
+        System.out.println(resultado);*/
+        nota = teclado.nextFloat();
+
+        while(nota != -1) {
+            maiorNota = nota > maiorNota ? nota:maiorNota;
+            menorNota = nota < menorNota ? nota:menorNota;
+            notas += nota;
+            alunos += 1;
+            nota = teclado.nextFloat();
+            temNotas = true;
+        }
+
+        if (temNotas) {
+            media = notas / alunos;
+            System.out.printf("Alunos: %d, Maior nota = %f, Menor nota = %f, Média dos alunos = %f", alunos, maiorNota, menorNota, media);
+        } else {
+            System.out.println("Nenhuma nota disponibilizada");
+        }
